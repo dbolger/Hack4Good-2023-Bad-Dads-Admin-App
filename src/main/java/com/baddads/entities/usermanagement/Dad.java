@@ -16,7 +16,7 @@ public class Dad {
     Dad() {
     }
 
-    Dad(String firstName, String lastName) {
+    public Dad(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
