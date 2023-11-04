@@ -1,4 +1,4 @@
-package com.baddads.entities.usermanagement;
+package com.baddads.entities.usermanagement.user.attributes;
 
 public enum Ethnicity {
     AMERICAN_INDIAN_OR_ALASKA_NATIVE("American Indian or Alaska Native"),

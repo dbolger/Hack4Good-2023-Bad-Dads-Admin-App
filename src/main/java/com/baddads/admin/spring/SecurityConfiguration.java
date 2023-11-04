@@ -1,7 +1,7 @@
 package com.baddads.admin.spring;
 
 import com.baddads.entities.usermanagement.staff.StaffMember;
-import com.baddads.models.request.JwtRequestFilter;
+//import com.baddads.models.request.JwtRequestFilter;
 import com.baddads.repository.StaffMemberRepository;
 import com.baddads.service.JwtUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,16 +41,16 @@ class SecurityConfiguration {
     JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
     @Autowired
     JwtUserDetailsService userDetailsService;
-    @Autowired
-    private JwtRequestFilter jwtRequestFilter;
+//    @Autowired
+//    private JwtRequestFilter jwtRequestFilter;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(handler -> handler.anyRequest().authenticated())
-                .exceptionHandling(handler -> handler.authenticationEntryPoint(jwtAuthenticationEntryPoint))
-                .sessionManagement(handler -> handler.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+                .authorizeHttpRequests(handler -> handler.anyRequest().permitAll())
+                .csrf(AbstractHttpConfigurer::disable);
+//                .exceptionHandling(handler -> handler.authenticationEntryPoint(jwtAuthenticationEntryPoint))
+//                .sessionManagement(handler -> handler.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         return http.build();
     }
 

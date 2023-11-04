@@ -1,9 +1,11 @@
-package com.baddads.entities.usermanagement;
+package com.baddads.entities.usermanagement.user;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.baddads.entities.usermanagement.user.attributes.CaseWorker;
+import com.baddads.entities.usermanagement.user.attributes.Child;
+import com.baddads.entities.usermanagement.user.attributes.Ethnicity;
+import com.baddads.entities.usermanagement.user.attributes.MartialStatus;
+import com.baddads.entities.course.Cohort;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -26,11 +28,16 @@ public class Dad {
     private String cellPhone;
     private String emergencyContact;
     private String emailAddress;
+    @OneToOne(targetEntity = CaseWorker.class)
     private CaseWorker caseWorker;
+    @OneToMany(targetEntity = Child.class)
     private List<Child> children;
     private String perChildSupportAmount;
     private MartialStatus martialStatus;
     private Ethnicity ethnicity;
+    @OneToOne
+    private Cohort cohort;
+    private Boolean active;
 
     Dad() {
     }
@@ -178,5 +185,21 @@ public class Dad {
 
     public void setCaseWorker(CaseWorker caseWorker) {
         this.caseWorker = caseWorker;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public Cohort getCohort() {
+        return cohort;
+    }
+
+    public void setCohort(Cohort cohort) {
+        this.cohort = cohort;
     }
 }

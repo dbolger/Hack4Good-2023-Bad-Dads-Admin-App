@@ -27,4 +27,10 @@ public class Question {
     public Long getId() {
         return id;
     }
+
+    enum QuestionType {
+        STAR_RATING,
+        INPUT_FIELD,
+        MULTIPLE_CHOICE
+    }
 }
