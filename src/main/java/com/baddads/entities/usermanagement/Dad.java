@@ -1,9 +1,6 @@
 package com.baddads.entities.usermanagement;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -26,7 +23,9 @@ public class Dad {
     private String cellPhone;
     private String emergencyContact;
     private String emailAddress;
+    @OneToOne(targetEntity = CaseWorker.class)
     private CaseWorker caseWorker;
+    @OneToMany(targetEntity = Child.class)
     private List<Child> children;
     private String perChildSupportAmount;
     private MartialStatus martialStatus;
