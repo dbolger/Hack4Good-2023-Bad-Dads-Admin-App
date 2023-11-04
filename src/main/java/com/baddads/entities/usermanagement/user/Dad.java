@@ -4,7 +4,7 @@ import com.baddads.entities.usermanagement.user.attributes.CaseWorker;
 import com.baddads.entities.usermanagement.user.attributes.Child;
 import com.baddads.entities.usermanagement.user.attributes.Ethnicity;
 import com.baddads.entities.usermanagement.user.attributes.MartialStatus;
-import com.baddads.entities.usermanagement.user.interaction.Cohort;
+import com.baddads.entities.course.Cohort;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;

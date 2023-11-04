@@ -1,15 +1,13 @@
 package com.baddads.entities.course;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "modules")
 public class Module {
     private @Id @GeneratedValue Long id;
     private Integer moduleNumber;
+    @OneToOne(targetEntity = Course.class)
     private Long courseId;
 
     Module() {

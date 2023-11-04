@@ -46,11 +46,11 @@ class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(handler -> handler.anyRequest().authenticated())
-                .exceptionHandling(handler -> handler.authenticationEntryPoint(jwtAuthenticationEntryPoint))
-                .sessionManagement(handler -> handler.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+//        http
+//                .csrf(AbstractHttpConfigurer::disable)
+//                .authorizeHttpRequests(handler -> handler.anyRequest().authenticated())
+//                .exceptionHandling(handler -> handler.authenticationEntryPoint(jwtAuthenticationEntryPoint))
+//                .sessionManagement(handler -> handler.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         return http.build();
     }
 

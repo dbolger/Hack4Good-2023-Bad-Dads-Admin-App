@@ -1,4 +1,4 @@
-package com.baddads.entities.usermanagement.user.interaction;
+package com.baddads.entities.course;
 
 import com.baddads.entities.usermanagement.user.Dad;
 import jakarta.persistence.*;
@@ -14,6 +14,7 @@ public class Cohort {
     private LocalDate endDate;
     @ManyToOne(targetEntity = Dad.class)
     private List<Dad> members;
+    private boolean active;
 
     Cohort() {
     }
@@ -50,5 +51,13 @@ public class Cohort {
 
     public Long getId() {
         return id;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

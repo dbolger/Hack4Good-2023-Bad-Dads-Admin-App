@@ -25,7 +25,7 @@ public class StaffMemberController {
         return staffMemberRepository.findByFirstNameAndLastName(firstName, lastName);
     }
 
-    @GetMapping("/purge")
+    @GetMapping("/staff/purge")
     public void purgeStaffMembers() {
         staffMemberRepository.deleteAll();
     }
