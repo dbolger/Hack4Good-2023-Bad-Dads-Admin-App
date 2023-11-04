@@ -1,4 +1,4 @@
-package com.baddads.entities.usermanagement;
+package com.baddads.entities.usermanagement.user.attributes;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

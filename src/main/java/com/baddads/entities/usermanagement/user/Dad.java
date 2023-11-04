@@ -1,5 +1,10 @@
-package com.baddads.entities.usermanagement;
+package com.baddads.entities.usermanagement.user;
 
+import com.baddads.entities.usermanagement.user.attributes.CaseWorker;
+import com.baddads.entities.usermanagement.user.attributes.Child;
+import com.baddads.entities.usermanagement.user.attributes.Ethnicity;
+import com.baddads.entities.usermanagement.user.attributes.MartialStatus;
+import com.baddads.entities.usermanagement.user.interaction.Cohort;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -30,6 +35,9 @@ public class Dad {
     private String perChildSupportAmount;
     private MartialStatus martialStatus;
     private Ethnicity ethnicity;
+    @OneToOne
+    private Cohort cohort;
+    private Boolean active;
 
     Dad() {
     }
@@ -177,5 +185,21 @@ public class Dad {
 
     public void setCaseWorker(CaseWorker caseWorker) {
         this.caseWorker = caseWorker;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public Cohort getCohort() {
+        return cohort;
+    }
+
+    public void setCohort(Cohort cohort) {
+        this.cohort = cohort;
     }
 }

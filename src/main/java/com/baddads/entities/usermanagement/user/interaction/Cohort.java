@@ -1,6 +1,6 @@
-package com.baddads.entities;
+package com.baddads.entities.usermanagement.user.interaction;
 
-import com.baddads.entities.usermanagement.Dad;
+import com.baddads.entities.usermanagement.user.Dad;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;

@@ -1,13 +1,11 @@
 package com.baddads.rest.controllers.dad;
 
 import com.baddads.dto.DadDTO;
-import com.baddads.entities.usermanagement.Dad;
+import com.baddads.entities.usermanagement.user.Dad;
 import com.baddads.repository.DadRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/dad")

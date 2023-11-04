@@ -1,6 +1,6 @@
 package com.baddads;
 
-import com.baddads.entities.usermanagement.Dad;
+import com.baddads.entities.usermanagement.user.Dad;
 import com.baddads.entities.usermanagement.staff.StaffMember;
 import com.baddads.repository.DadRepository;
 import com.baddads.repository.StaffMemberRepository;
@@ -30,7 +30,7 @@ public class AdminApplication {
 			if (staffMemberRepo.findByFirstNameAndLastName("Dylan", "Bolger").isEmpty()) {
 				log.info("Preloading " + staffMemberRepo.save(new StaffMember("Dylan", "Bolger", "dbolger")));
 			} else {
-				log.info("Found existing StaffMember: " + staffMemberRepo.findByFirstNameAndLastName("Dylan", "Bolger").get(0));
+				log.info("Found existing StaffMember: " + staffMemberRepo.findByFirstNameAndLastName("Dylan", "Bolger").get(0).getFirstName());
 			}
 			if (dadRepo.findByFirstNameAndLastName("John", "Doe").isEmpty()) {
 				log.info("Preloading " + dadRepo.save(new Dad("John", "Doe")));

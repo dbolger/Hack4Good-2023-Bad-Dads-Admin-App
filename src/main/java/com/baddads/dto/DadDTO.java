@@ -1,6 +1,9 @@
 package com.baddads.dto;
 
-import com.baddads.entities.usermanagement.*;
+import com.baddads.entities.usermanagement.user.attributes.CaseWorker;
+import com.baddads.entities.usermanagement.user.attributes.Child;
+import com.baddads.entities.usermanagement.user.attributes.Ethnicity;
+import com.baddads.entities.usermanagement.user.attributes.MartialStatus;
 
 import java.time.LocalDate;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.baddads.repository;
 
-import com.baddads.entities.usermanagement.Dad;
+import com.baddads.entities.usermanagement.user.Dad;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
