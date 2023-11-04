@@ -23,4 +23,8 @@ public class Question {
     public void setQuestionPrompt(String questionPrompt) {
         this.questionPrompt = questionPrompt;
     }
+
+    public Long getId() {
+        return id;
+    }
 }
