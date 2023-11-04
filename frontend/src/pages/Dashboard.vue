@@ -1,15 +1,22 @@
 <script setup>
-import { inject, onMounted } from 'vue'
+import { inject, onMounted, ref } from 'vue'
 const $http = inject('$http')
+const dads = ref(null)
+const endpoint = `${$http.defaults.baseURL}/dads/get/all`
 
-const endpoint = `${$http.defaults.baseURL}/dashboard`
-onMounted(async () => {
-  const { data } = $http.get(endpoint)
-})
+$http.get(endpoint)
+     .then(({ data }) => dads.value = data)
+     .catch(e=>dads.value = [])
 </script>
-
 <template>
   <p>#Dashboard</p>
+  <div>
+    <ul>
+      <li v-for="dad in dads">
+        {{ dad.firstName }} {{ dad.lastName }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped lang="scss">

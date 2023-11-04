@@ -20,7 +20,7 @@ export default defineConfig({
         port: 3000,
         proxy: {
             '/api': {
-                target: parsed?.VITE_API_URL ?? 'http://10.12.18.85:5005',
+                target: parsed?.VITE_API_URL ?? 'http://localhost:8080',
                 changeOrigin: true,
                 secure: false,
                 rewrite: (path) => path.replace(/^\/api/, ''),
