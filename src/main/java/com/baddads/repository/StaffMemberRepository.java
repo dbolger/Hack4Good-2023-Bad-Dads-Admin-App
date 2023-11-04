@@ -8,6 +8,9 @@ import java.util.List;
 
 @Repository
 public interface StaffMemberRepository extends CrudRepository<StaffMember, Long> {
+
+    StaffMember findByUsername(String username);
+
     List<StaffMember> findByFirstNameAndLastName(String firstName, String lastName);
 
 }

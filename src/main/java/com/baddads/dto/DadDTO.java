@@ -1,18 +1,11 @@
-package com.baddads.entities.usermanagement;
+package com.baddads.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.baddads.entities.usermanagement.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity
-@Table(name = "dads")
-public class Dad {
-    private @Id
-    @GeneratedValue Long id;
+public class DadDTO {
     private String firstName;
     private String lastName;
     private LocalDate intakeDate;
@@ -32,17 +25,14 @@ public class Dad {
     private MartialStatus martialStatus;
     private Ethnicity ethnicity;
 
-    Dad() {
+    DadDTO() {
     }
 
-    public Dad(String firstName, String lastName) {
+    public DadDTO(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public Long getId() {
-        return id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -179,4 +169,5 @@ public class Dad {
     public void setCaseWorker(CaseWorker caseWorker) {
         this.caseWorker = caseWorker;
     }
+
 }

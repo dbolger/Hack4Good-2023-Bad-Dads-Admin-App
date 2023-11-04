@@ -13,6 +13,7 @@ public class StaffMember {
     private String firstName;
     private String lastName;
     private String username;
+    private String password;
 
     private StaffMember() {
     }
@@ -49,5 +50,13 @@ public class StaffMember {
 
     public Long getId() {
         return id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

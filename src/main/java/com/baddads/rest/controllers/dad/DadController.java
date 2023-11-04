@@ -1,26 +1,28 @@
 package com.baddads.rest.controllers.dad;
 
+import com.baddads.dto.DadDTO;
 import com.baddads.entities.usermanagement.Dad;
 import com.baddads.repository.DadRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/dad")
 class DadController {
 
     @Autowired
     private DadRepository dadRepository;
 
-    @GetMapping("/getUser")
-    public Dad getUser(@RequestParam Long id) {
-        Optional<Dad> user = dadRepository.findById(id);
-        return user.orElse(null);
+    @Autowired
+    private ModelMapper modelMapper;
+
+    @RequestMapping("/register")
+    public Dad registerNewDad(@RequestBody DadDTO dadDTO) {
+        Dad dad = modelMapper.map(dadDTO, Dad.class);
+        dadRepository.save(dad);
+        return dad;
     }
-
-    // TODO: implement auth
-
 }

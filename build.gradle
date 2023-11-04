@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.1.1'
 	implementation 'org.springframework.boot:spring-boot-starter-batch'
 	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.2'
 	implementation 'org.postgresql:postgresql'
