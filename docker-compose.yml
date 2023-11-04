@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  app:
+    image: 'baddads/admin'
+    build:
+      context: .
+    container_name: app
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres?currentSchema=public
+      - SPRING_DATASOURCE_USERNAME=baddads
+      - SPRING_DATASOURCE_PASSWORD=baddads
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  db:
+    environment:
+      - POSTGRES_USER=baddads
+      - POSTGRES_PASSWORD=baddads
+    ports:
+      - '5432:5432'
+    volumes:
+      - '/data:/var/lib/postgresql/data'
+    container_name: postgresql
+    image: postgres
