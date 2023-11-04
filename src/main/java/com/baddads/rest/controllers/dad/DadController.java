@@ -31,11 +31,18 @@ public class DadController {
         return ResponseEntity.ok(dadRepository.findAll());
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.PUT)
-    public Dad registerNewDad(@RequestBody DadDTO dadDTO) {
+    @RequestMapping(value = "/create", method = RequestMethod.PUT, consumes = "application/json")
+    public ResponseEntity<Dad> registerNewDad(@RequestBody DadDTO dadDTO) {
         Dad dad = modelMapper.map(dadDTO, Dad.class);
         dadRepository.save(dad);
-        return dad;
+        return ResponseEntity.ok(dad);
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public ResponseEntity<Dad> updateDad(@RequestBody DadDTO dadDTO) {
+        Dad newDad = modelMapper.map(dadDTO, Dad.class);
+        dadRepository.save(newDad);
+        return ResponseEntity.ok(newDad);
     }
 
     @RequestMapping(value = "/addToCohort", method = RequestMethod.POST)
@@ -51,4 +58,5 @@ public class DadController {
         dadRepository.deleteAll();
         return ResponseEntity.ok(null);
     }
+
 }

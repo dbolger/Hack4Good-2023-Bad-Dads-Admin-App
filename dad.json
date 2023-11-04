@@ -1,0 +1,42 @@
+{
+  "firstName": "James",
+  "lastName": "Lewis",
+  "intakeDate": "20231031",
+  "address": "1548 Main St",
+  "address2": "Apt #4",
+  "city": "Hannibal",
+  "state": "MO",
+  "zipcode": "63401",
+  "employer": "Lamberts",
+  "workPhone": "N/A",
+  "cellPhone": "(314) 552-3333",
+  "emergencyContact": "(234) 224-2334",
+  "emailAddress": "Jamesl@gmail.com",
+  "caseWorker":{
+    "firstName": "Jeremy",
+    "lastName": "Renner",
+    "phoneNumber": "123-456-7890"
+  },
+  "children": [
+    {
+      "firstName": "Jimmy",
+      "lastName": "Lewis",
+      "dateOfBirth": "20150819",
+      "ContactWithChild": "SHARED"
+    },
+    {
+      "firstName": "Larry",
+      "lastName": "Lewis",
+      "dateOfBirth": "20130221",
+      "ContactWithChild": "SHARED"
+    }
+  ],
+  "perChildSupportAmount": "540",
+  "martialStatus": "MARRIED",
+  "ethnicity": "NATIVE_HAWAIIAN_OR_ISLANDER",
+  "cohort":{
+    "startDate": "2023113",
+    "endDate": "20231230"
+  },
+  "active": true
+}
