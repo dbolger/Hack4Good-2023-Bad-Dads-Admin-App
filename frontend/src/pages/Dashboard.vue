@@ -1,5 +1,6 @@
 <script setup>
 import { inject, onMounted } from 'vue'
+import HeaderNav from '../components/Navigation.vue'
 const $http = inject('$http')
 
 const endpoint = `${$http.defaults.baseURL}/dashboard`
@@ -9,7 +10,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <p>#Dashboard</p>
+  <header-nav></header-nav>
 </template>
 
 <style scoped lang="scss">
