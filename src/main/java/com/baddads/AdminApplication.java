@@ -10,6 +10,8 @@ import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @AutoConfiguration
 @SpringBootApplication
 public class AdminApplication {
@@ -23,7 +25,9 @@ public class AdminApplication {
 	@Bean
 	CommandLineRunner initAdminDatabase(AdminRepository repository) {
 		return args -> {
-            log.info("Preloading " + repository.save(new Admin("Dylan", "Bolger", "dbolger")));
+			if (repository.findByFirstNameAndLastName("Dylan", "Bolger").isEmpty()) {
+				log.info("Preloading " + repository.save(new Admin("Dylan", "Bolger", "dbolger")));
+			}
         };
 	}
 
