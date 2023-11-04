@@ -8,13 +8,9 @@ services:
     container_name: app
     ports:
       - '8080:8080'
+      - '5005:5005'
     depends_on:
       - db
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres?currentSchema=public
-      - SPRING_DATASOURCE_USERNAME=baddads
-      - SPRING_DATASOURCE_PASSWORD=baddads
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
 
   db:
     environment:

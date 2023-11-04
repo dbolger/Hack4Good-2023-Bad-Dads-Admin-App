@@ -1,10 +1,12 @@
-package com.baddads.entities;
+package com.baddads.entities.usermanagement;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "admins")
 public class Admin {
     private @Id @GeneratedValue Long id;
 
@@ -12,10 +14,10 @@ public class Admin {
     private String lastName;
     private String username;
 
-    Admin() {
+    private Admin() {
     }
 
-    Admin(String firstName, String lastName, String username) {
+    public Admin(String firstName, String lastName, String username) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;

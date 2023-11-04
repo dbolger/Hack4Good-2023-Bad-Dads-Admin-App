@@ -1,20 +1,22 @@
-package com.baddads.entities;
+package com.baddads.entities.usermanagement;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-public class User {
+@Table(name = "dads")
+public class Dad {
     private @Id
     @GeneratedValue Long id;
     private String firstName;
     private String lastName;
 
-    User() {
+    Dad() {
     }
 
-    User(String firstName, String lastName) {
+    Dad(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
