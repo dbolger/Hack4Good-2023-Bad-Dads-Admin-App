@@ -46,9 +46,9 @@ class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http
-//                .csrf(AbstractHttpConfigurer::disable)
-//                .authorizeHttpRequests(handler -> handler.anyRequest().authenticated())
+        http
+                .authorizeHttpRequests(handler -> handler.anyRequest().permitAll())
+                .csrf(AbstractHttpConfigurer::disable);
 //                .exceptionHandling(handler -> handler.authenticationEntryPoint(jwtAuthenticationEntryPoint))
 //                .sessionManagement(handler -> handler.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         return http.build();

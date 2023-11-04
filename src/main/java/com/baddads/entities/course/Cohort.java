@@ -12,7 +12,7 @@ public class Cohort {
     private @Id @GeneratedValue Long id;
     private LocalDate startDate;
     private LocalDate endDate;
-    @ManyToOne(targetEntity = Dad.class)
+    @OneToMany(targetEntity = Dad.class)
     private List<Dad> members;
     private boolean active;
 

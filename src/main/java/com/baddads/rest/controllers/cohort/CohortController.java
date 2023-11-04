@@ -24,7 +24,7 @@ public class CohortController {
         return ResponseEntity.ok(cohortRepository.findAll());
     }
 
-    @PostMapping("/create")
+    @PostMapping(value = "/create", consumes = "application/json")
     public ResponseEntity<Cohort> createNewCohort(@RequestBody CohortDTO cohortDTO) {
         Cohort cohort = modelMapper.map(cohortDTO, Cohort.class);
         cohortRepository.save(cohort);

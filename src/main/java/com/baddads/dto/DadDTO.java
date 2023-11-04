@@ -4,14 +4,16 @@ import com.baddads.entities.usermanagement.user.attributes.CaseWorker;
 import com.baddads.entities.usermanagement.user.attributes.Child;
 import com.baddads.entities.usermanagement.user.attributes.Ethnicity;
 import com.baddads.entities.usermanagement.user.attributes.MartialStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class DadDTO {
     private String firstName;
     private String lastName;
-    private LocalDate intakeDate;
+    private Date intakeDate;
     private String address;
     private String address2;
     private String city;
@@ -45,11 +47,11 @@ public class DadDTO {
         return lastName;
     }
 
-    public LocalDate getIntakeDate() {
+    public Date getIntakeDate() {
         return intakeDate;
     }
 
-    public void setIntakeDate(LocalDate intakeDate) {
+    public void setIntakeDate(Date intakeDate) {
         this.intakeDate = intakeDate;
     }
 

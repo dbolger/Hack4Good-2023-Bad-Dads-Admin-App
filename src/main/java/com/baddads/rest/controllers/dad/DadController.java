@@ -1,8 +1,6 @@
 package com.baddads.rest.controllers.dad;
 
-import com.baddads.AdminApplication;
 import com.baddads.dto.DadDTO;
-import com.baddads.entities.course.Cohort;
 import com.baddads.entities.usermanagement.user.Dad;
 import com.baddads.repository.CohortRepository;
 import com.baddads.repository.DadRepository;
@@ -28,7 +26,12 @@ public class DadController {
     @Autowired
     private ModelMapper modelMapper;
 
-    @RequestMapping(value = "/register", method = RequestMethod.PUT)
+    @GetMapping("/get/all")
+    public ResponseEntity<Iterable<Dad>> getAllDads() {
+        return ResponseEntity.ok(dadRepository.findAll());
+    }
+
+    @RequestMapping(value = "/create", method = RequestMethod.PUT)
     public Dad registerNewDad(@RequestBody DadDTO dadDTO) {
         Dad dad = modelMapper.map(dadDTO, Dad.class);
         dadRepository.save(dad);

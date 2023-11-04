@@ -38,6 +38,4 @@ public class DashboardController {
         return ResponseEntity.ok(cohortRepository.countByActive(active));
     }
 
-
-
 }
