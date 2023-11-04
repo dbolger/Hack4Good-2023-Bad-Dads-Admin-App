@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { config } from 'dotenv'
+const { parsed } = config()
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,15 +16,18 @@ export default defineConfig({
     root: 'frontend',
     plugins: [vue()],
     server:{
-        // host: '
+        host: 'localhost',
         port: 3000,
         proxy: {
             '/api': {
-                target: 'http://localhost:5050',
+                target: parsed?.VITE_API_URL ?? 'http://10.12.18.85:5005',
                 changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/api/, '')
+                secure: false,
+                rewrite: (path) => path.replace(/^\/api/, ''),
+                cors: false, // shhhh
             }
-        }
+        },
+        cors: false, // shhhh
     },
     publicDir: 'frontend/public',
 })
