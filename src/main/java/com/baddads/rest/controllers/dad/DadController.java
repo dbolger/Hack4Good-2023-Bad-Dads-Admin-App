@@ -5,6 +5,7 @@ import com.baddads.entities.usermanagement.user.Dad;
 import com.baddads.repository.DadRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,5 +23,11 @@ class DadController {
         Dad dad = modelMapper.map(dadDTO, Dad.class);
         dadRepository.save(dad);
         return dad;
+    }
+
+    @RequestMapping("/purge")
+    public ResponseEntity<?> purgeDads() {
+        dadRepository.deleteAll();
+        return ResponseEntity.ok(null);
     }
 }

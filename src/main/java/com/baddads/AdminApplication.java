@@ -33,7 +33,9 @@ public class AdminApplication {
 				log.info("Found existing StaffMember: " + staffMemberRepo.findByFirstNameAndLastName("Dylan", "Bolger").get(0).getFirstName());
 			}
 			if (dadRepo.findByFirstNameAndLastName("John", "Doe").isEmpty()) {
-				log.info("Preloading " + dadRepo.save(new Dad("John", "Doe")));
+				Dad dadToInsert = new Dad("John", "Doe");
+				dadToInsert.setActive(true);
+				log.info("Preloading " + dadRepo.save(dadToInsert));
 			} else {
 				log.info("Found existing Dad: " + dadRepo.findByFirstNameAndLastName("John", "Doe").get(0));
 			}

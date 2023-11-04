@@ -11,10 +11,40 @@ import java.time.LocalDate;
 @Table(name = "children")
 public class Child {
     private @Id @GeneratedValue Long id;
+    private String firstName;
+    private String lastName;
     private LocalDate dateOfBirth;
     private ContactWithChild contactWithChild;
 
-    enum ContactWithChild {
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getContactWithChild() {
+        return contactWithChild.name();
+    }
+
+    private enum ContactWithChild {
         NO("No"),
         FULL("Full Custody"),
         SHARED("Shared Custody"),

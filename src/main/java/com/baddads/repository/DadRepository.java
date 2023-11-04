@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface DadRepository extends CrudRepository<Dad, Long> {
     List<Dad> findByFirstNameAndLastName(String firstName, String lastName);
+    Integer countByActive(Boolean active);
 }
