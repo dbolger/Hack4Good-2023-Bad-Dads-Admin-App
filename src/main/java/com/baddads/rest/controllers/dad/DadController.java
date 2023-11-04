@@ -21,4 +21,6 @@ class DadController {
         return user.orElse(null);
     }
 
+    // TODO: implement auth
+
 }

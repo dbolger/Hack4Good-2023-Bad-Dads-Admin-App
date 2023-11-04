@@ -24,6 +24,7 @@ public class AdminApplication {
 
 	@Bean
 	CommandLineRunner initAdminDatabase(AdminRepository repository) {
+		// TODO: init dad db too
 		return args -> {
 			if (repository.findByFirstNameAndLastName("Dylan", "Bolger").isEmpty()) {
 				log.info("Preloading " + repository.save(new Admin("Dylan", "Bolger", "dbolger")));
