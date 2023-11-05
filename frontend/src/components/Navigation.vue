@@ -1,11 +1,10 @@
 <script setup>
 import { inject, onMounted, ref } from 'vue'
 import { sidebarItems as sItem } from '../routing.js'
-
 const $http = inject('$http')
 </script>
 <template>
-    <v-navigation-drawer v-show="true" style="text-align: left;">
+    <v-navigation-drawer v-show="true" style="text-align: left;" class="s-nav">
     <v-list-item class="d-flex justify-center" height="100">
         <v-img
           :width="100"
@@ -49,3 +48,18 @@ const $http = inject('$http')
     </v-list-item>
     </v-navigation-drawer>
 </template>
+<style lang="scss">
+.s-nav {
+  background-color: #f5f5f5;
+  color: black;
+  font-size: 1.2em;
+  font-weight: bold;
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+</style>
