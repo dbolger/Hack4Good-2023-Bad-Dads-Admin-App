@@ -5,12 +5,12 @@ import SideNav from './components/Navigation.vue'
 
 <template>
   <v-app>
+    <v-layout>
     <side-nav v-if="store.getters['auth/isLoggedIn']" />
     <v-main>
-      <v-container>
-        <router-view />
-      </v-container>
+      <router-view />
     </v-main>
+    </v-layout>
   </v-app>
 </template>
 
