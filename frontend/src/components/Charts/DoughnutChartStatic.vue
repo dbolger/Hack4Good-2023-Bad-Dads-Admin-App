@@ -11,13 +11,13 @@ const data = {
     }
   ]
 }
-
 const options = {
   responsive: false,
   maintainAspectRatio: true
 }
-
 </script>
 <template>
-  <doughnut :data="data" :options="options" />
+  <div style="position: relative">
+    <doughnut :data="data" :options="options" />
+  </div>
 </template>
