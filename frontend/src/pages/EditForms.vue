@@ -46,6 +46,7 @@ const toggleDisplay = async () => {
 </template>
 <style>
 .newForm {
+  align-content: center;
   margin-bottom: 40px;
 }
 table {

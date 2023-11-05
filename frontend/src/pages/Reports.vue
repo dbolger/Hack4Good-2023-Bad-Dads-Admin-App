@@ -5,6 +5,4 @@ import ChartStatic from '../components/Charts/ChartStatic.vue'
 </script>
 <template>
   <h1>Reports</h1>
-  <doughnut-chart-static />
-  <bar-chart-static />
 </template>
