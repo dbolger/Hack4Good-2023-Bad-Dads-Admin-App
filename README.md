@@ -17,7 +17,7 @@ Client (Companion App) - Native iOS application, written in Swift.
 
 ## Screenshots
 ![](screens/2023-11-05-094226_1243x1006_scrot.png)
-![](screens/2023-11-05-100842_2560x1395_scrot.pngs)
+![](screens/2023-11-05-100842_2560x1395_scrot.png)
 
 ## Backend
 
