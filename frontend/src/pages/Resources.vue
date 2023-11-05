@@ -1,10 +1,23 @@
+<script setup>
+import { reactive, ref } from 'vue';
+
+const show = ref(false)
+
+const toggleDisplay = async () => {
+  show.value = !show.value
+}
+
+
+
+</script>
 <template>
   <h1>Resources</h1>
   <p>Blog articles from the Good Dads Blog are automatically added to your clients' companion apps. If you want to write your own blog posts, you can do so here and they will seamlessly fit into the blogroll with Good Dads Blog's posts.</p>
-  <button>Add New Post</button>
-  <form class="newPost">
+  <button @click="toggleDisplay">Add New Post</button>
+  <form class="newPost" v-show="show">
     <input type="text" placeholder="Title">
     <select>
+      <option value="none" selected disabled hidden>Category</option>
       <option value="1">Community Development</option>
       <option value="2">Character</option>
       <option value="3">Health</option>
@@ -19,6 +32,7 @@
   <form class="searchForm">
     <input type="text" placeholder="Search">
     <select>
+      <option value="none" selected disabled hidden>Filter by Category</option>
       <option value="1">Community Development</option>
       <option value="2">Character</option>
       <option value="3">Health</option>
@@ -86,10 +100,10 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin: 20px;
+  margin: 20px 0;
   input, select {
     padding: 10px;
-    margin: 10px 10px;
+    margin: 10px 0px;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 1em;
@@ -129,10 +143,17 @@ form {
 }
 .newPost {
   max-width: 1024px;
-
+  margin-bottom: 60px;
+  display: block;
   input, select {
     display: inline-block;
-    width: 48%;
+    width: 45%;
+  }
+  input {
+    margin-right: 10px
+  }
+  textarea {
+    width: 92%;
   }
 }
 table {
@@ -174,11 +195,12 @@ button {
   color: #fff;
   max-width: 200px;
   margin: 0 auto;
-  border-bottom: 3px solid #3C6E3C;
+  border-bottom: 3px solid #20421d;
   transition: all 250ms ease-in-out;
 }
 button:hover {
-  background: #3C6E3C;
+  background: #20421d;
+  border-bottom: 3px solid #20421d;
   padding: 12px 24px;
   cursor: pointer;
 }
