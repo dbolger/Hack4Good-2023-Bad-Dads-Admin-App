@@ -15,7 +15,7 @@ import { sidebarItems as sItem } from '../routing.js'
             src="./../../public/Good Dads Square logo.png"
             style="padding-bottom: 15px;"
         />
-        <v-list-item-title style="vertical-align: center; text-align: center;">Springfield</v-list-item-title>
+        <v-list-item-title style="vertical-align: center; text-align: center;">Stockton</v-list-item-title>
       </div>
     </v-list-item>
     <v-divider></v-divider>
