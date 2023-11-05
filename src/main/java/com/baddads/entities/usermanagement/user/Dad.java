@@ -6,18 +6,22 @@ import com.baddads.entities.usermanagement.user.attributes.Ethnicity;
 import com.baddads.entities.usermanagement.user.attributes.MartialStatus;
 import com.baddads.entities.course.Cohort;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Entity
+@DynamicUpdate
 @Table(name = "dads")
 public class Dad {
     private @Id
     @GeneratedValue Long id;
     private String firstName;
     private String lastName;
-    private LocalDate intakeDate;
+    private Date intakeDate;
     private String address;
     private String address2;
     private String city;
@@ -28,9 +32,9 @@ public class Dad {
     private String cellPhone;
     private String emergencyContact;
     private String emailAddress;
-    @OneToOne(targetEntity = CaseWorker.class)
+    @OneToOne(targetEntity = CaseWorker.class, cascade = CascadeType.PERSIST)
     private CaseWorker caseWorker;
-    @OneToMany(targetEntity = Child.class)
+    @OneToMany(targetEntity = Child.class, cascade = CascadeType.PERSIST)
     private List<Child> children;
     private String perChildSupportAmount;
     private MartialStatus martialStatus;
@@ -39,13 +43,9 @@ public class Dad {
     private Cohort cohort;
     private Boolean active;
 
-    Dad() {
+    public Dad() {
     }
 
-    public Dad(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
 
     public Long getId() {
         return id;
@@ -59,11 +59,11 @@ public class Dad {
         return lastName;
     }
 
-    public LocalDate getIntakeDate() {
+    public Date getIntakeDate() {
         return intakeDate;
     }
 
-    public void setIntakeDate(LocalDate intakeDate) {
+    public void setIntakeDate(Date intakeDate) {
         this.intakeDate = intakeDate;
     }
 
@@ -151,16 +151,16 @@ public class Dad {
         return ethnicity;
     }
 
-    public void setEthnicity(Ethnicity ethnicity) {
-        this.ethnicity = ethnicity;
+    public void setEthnicity(String ethnicity) {
+        this.ethnicity = Ethnicity.valueOf(ethnicity);
     }
 
     public MartialStatus getMartialStatus() {
         return martialStatus;
     }
 
-    public void setMartialStatus(MartialStatus martialStatus) {
-        this.martialStatus = martialStatus;
+    public void setMartialStatus(String martialStatus) {
+        this.martialStatus = MartialStatus.valueOf(martialStatus);
     }
 
     public String getPerChildSupportAmount() {
@@ -201,5 +201,13 @@ public class Dad {
 
     public void setCohort(Cohort cohort) {
         this.cohort = cohort;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

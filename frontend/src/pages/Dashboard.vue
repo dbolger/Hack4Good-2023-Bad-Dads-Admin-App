@@ -1,5 +1,6 @@
 <script setup>
-import { inject, onMounted, ref } from 'vue'
+import { inject, onMounted } from 'vue'
+import HeaderNav from '../components/Navigation.vue'
 const $http = inject('$http')
 const dads = ref(null)
 const endpoint = `${$http.defaults.baseURL}/dads/get/all`
@@ -8,6 +9,7 @@ $http.get(endpoint)
      .then(({ data }) => dads.value = data)
      .catch(e=>dads.value = [])
 </script>
+
 <template>
   <p>#Dashboard</p>
   <div>
@@ -17,6 +19,7 @@ $http.get(endpoint)
       </li>
     </ul>
   </div>
+  <header-nav></header-nav>
 </template>
 
 <style scoped lang="scss">

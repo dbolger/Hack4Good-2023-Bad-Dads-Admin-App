@@ -5,14 +5,13 @@ import com.baddads.entities.usermanagement.user.attributes.Child;
 import com.baddads.entities.usermanagement.user.attributes.Ethnicity;
 import com.baddads.entities.usermanagement.user.attributes.MartialStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
-
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 public class DadDTO {
     private String firstName;
     private String lastName;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date intakeDate;
     private String address;
     private String address2;
@@ -29,15 +28,10 @@ public class DadDTO {
     private String perChildSupportAmount;
     private MartialStatus martialStatus;
     private Ethnicity ethnicity;
+    private Boolean active;
 
     DadDTO() {
     }
-
-    public DadDTO(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
 
     public String getFirstName() {
         return firstName;
@@ -175,4 +169,19 @@ public class DadDTO {
         this.caseWorker = caseWorker;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
 }

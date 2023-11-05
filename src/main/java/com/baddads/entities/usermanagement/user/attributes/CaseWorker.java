@@ -46,4 +46,8 @@ public class CaseWorker {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
+    public Long getId() {
+        return id;
+    }
 }

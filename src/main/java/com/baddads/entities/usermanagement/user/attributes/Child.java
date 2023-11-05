@@ -1,11 +1,13 @@
 package com.baddads.entities.usermanagement.user.attributes;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "children")
@@ -13,7 +15,8 @@ public class Child {
     private @Id @GeneratedValue Long id;
     private String firstName;
     private String lastName;
-    private LocalDate dateOfBirth;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date dateOfBirth;
     private ContactWithChild contactWithChild;
 
     public String getFirstName() {
@@ -32,32 +35,29 @@ public class Child {
         this.lastName = lastName;
     }
 
-    public LocalDate getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getContactWithChild() {
-        return contactWithChild.name();
+    public ContactWithChild getContactWithChild() {
+        return contactWithChild;
     }
 
-    private enum ContactWithChild {
-        NO("No"),
-        FULL("Full Custody"),
-        SHARED("Shared Custody"),
-        VISITATION("Visitation"),
-        PHONE("Phone"),
-        OTHER("Other");
-        private final String friendlyName;
-        ContactWithChild(String friendlyName) {
-            this.friendlyName = friendlyName;
-        }
+    public void setContactWithChild(String contactWithChild) {
+        this.contactWithChild = ContactWithChild.valueOf(contactWithChild);
+    }
 
-        public String getFriendlyName() {
-            return friendlyName;
-        }
+    public enum ContactWithChild {
+        NO,
+        FULL,
+        SHARED,
+        VISITATION,
+        PHONE,
+        OTHER;
+
     }
 }

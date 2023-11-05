@@ -3,16 +3,11 @@ import Dashboard from './pages/dashboard.vue'
 </script>
 
 <template>
-  <suspense>
-    <template #fallback>
-      <div class="flex flex-col items-center justify-center h-screen">
-        <img class="logo" src="./assets/vue.png" alt="logo" />
-        <p class="text-2xl font-bold text-gray-500">Loading...</p>
-      </div>
-    </template>
-    <router-view />
-  </suspense>
+  <v-app>
+    <dashboard />
+  </v-app>
 </template>
+
 <style scoped>
 .logo {
   height: 6em;
