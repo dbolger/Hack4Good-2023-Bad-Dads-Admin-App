@@ -9,6 +9,8 @@ Backend data storage is beginning to persist but has some bugs needing worked ou
 Frontend needs designed, but RESTful APIs should make hooking up the data simple once all endpoint are laid out.
 
 ## Screenshots
+![](screens/2023-11-05-094226_1243x1006_scrot.png)
+
 
 
 ## Architecture Overview
