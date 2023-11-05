@@ -7,6 +7,7 @@ Caleste
 Backend (for Admin and Client Data) - Spring Boot RESTful Service, PostgreSQL persistent data storage
 
 Client (Admin) - Vue.js
+
 Client (Companion App) - Native iOS application, written in Swift.
 
  - Both the frontend and backend components have some foundation but are not complete.
