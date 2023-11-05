@@ -11,7 +11,7 @@ import { sidebarItems as sItem } from '../routing.js'
         <v-img
             :max-width="100"
             :max-height="75"
-            cover="true"
+            :cover="true"
             src="./../../public/Good Dads Square logo.png"
             style="padding-bottom: 15px;"
         />
