@@ -29,5 +29,5 @@ export default defineConfig({
         },
         cors: false, // shhhh
     },
-    publicDir: 'frontend/public',
+    publicDir: 'public',
 })

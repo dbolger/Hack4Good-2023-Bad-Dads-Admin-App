@@ -1,6 +1,5 @@
 import { inject } from 'vue'
-import axiosInstance from '../helpers/http.axios.js'
-inject('$http', axiosInstance)
+import $http from '../helpers/http.axios.js'
 export const dads = {
     namespaced: true,
     state: () => ({

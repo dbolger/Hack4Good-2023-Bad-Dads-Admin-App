@@ -1,6 +1,5 @@
 <script setup>
-import { inject, onMounted } from 'vue'
-import HeaderNav from '../components/Navigation.vue'
+import { inject, onMounted, ref } from 'vue'
 const $http = inject('$http')
 const dads = ref(null)
 const endpoint = `${$http.defaults.baseURL}/dads/get/all`
@@ -19,7 +18,6 @@ $http.get(endpoint)
       </li>
     </ul>
   </div>
-  <header-nav></header-nav>
 </template>
 
 <style scoped lang="scss">

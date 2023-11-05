@@ -1,13 +1,14 @@
 <script setup>
-import { reactive } from 'vue'
+import { inject, reactive } from 'vue'
 import { useVuelidate } from '@vuelidate/core'
-import { email, required } from '@vuelidate/validators'
+import { required } from '@vuelidate/validators'
+import store from '../store/index.js'
+import router from '../routing.js'
+const $http = inject('$http')
 
 const initialState = {
-  name: '',
-  email: '',
-  select: null,
-  checkbox: null,
+  username: '',
+  password: '',
 }
 
 const state = reactive({
@@ -15,8 +16,8 @@ const state = reactive({
 })
 
 const rules = {
-  name: { required },
-  email: { required, email },
+  username: { required },
+  password: { required },
 }
 
 const v$ = useVuelidate(rules, state)
@@ -29,31 +30,50 @@ function clear () {
   }
 }
 
+const submit = async () => {
+  const endpoint = `${$http.defaults.baseURL}/auth`
+  v$.value.$touch()
+
+  if (v$.value.$error) {
+    return
+  }
+  const { data } = await $http.post(endpoint, state)
+                              .catch(e => e.response)
+  if (data.error) {
+    v$.value.$reset()
+    return
+  }
+
+  store.commit('auth/setToken', data?.jwtToken)
+  router.push({ name: 'Home' })
+
+  console.log(result)
+}
 </script>
 <template>
   <v-form>
     <v-text-field
-        v-model="state.name"
-        :error-messages="v$.name.$errors.map(e => e.$message)"
-        :counter="10"
+        v-model="state.username"
+        :error-messages="v$.username.$errors.map(e => e.$message)"
         label="Name"
         required
-        @input="v$.name.$touch"
-        @blur="v$.name.$touch"
+        @input="v$.username.$touch"
+        @blur="v$.username.$touch"
     />
 
     <v-text-field
-        v-model="state.email"
-        :error-messages="v$.email.$errors.map(e => e.$message)"
-        label="E-mail"
+        v-model="state.password"
+        type="password"
+        :error-messages="v$.password.$errors.map(e => e.$message)"
+        label="Password"
         required
-        @input="v$.email.$touch"
-        @blur="v$.email.$touch"
+        @input="v$.password.$touch"
+        @blur="v$.password.$touch"
     />
 
     <v-btn
         class="me-4"
-        @click="v$.$validate"
+        @click="submit"
     >
       submit
     </v-btn>
