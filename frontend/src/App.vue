@@ -1,14 +1,16 @@
 <script setup>
-import Dashboard from './pages/dashboard.vue'
 import store from './store'
 import SideNav from './components/Navigation.vue'
-import { reactive } from 'vue'
 </script>
 
 <template>
   <v-app>
     <side-nav v-if="store.getters['auth/isLoggedIn']" />
-    <router-view />
+    <v-main>
+      <v-container>
+        <router-view />
+      </v-container>
+    </v-main>
   </v-app>
 </template>
 
